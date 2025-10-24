@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useAuth } from '../contexts/AuthContext';
 import { LoginScreen, RegisterScreen, HomeScreen, DashboardScreen, SalesScreen, ProductsScreen, InventoryScreen, CustomersScreen, ReportsScreen, SettingsScreen } from '../screens';
+import LoadingScreen from '../components/common/LoadingScreen';
 
 const Stack = createStackNavigator();
 
@@ -9,7 +10,7 @@ export default function AppNavigator() {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return null; // Or a loading screen
+    return <LoadingScreen />;
   }
 
   return (
